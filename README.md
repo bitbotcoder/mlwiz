@@ -8,7 +8,7 @@ MLWiz is a user-friendly web application for performing automated machine learni
 
    ![alt text](images/mlwiz5.jpeg)
 
-- **Load PyCaret Datasets**: Load predefined datasets available through PyCaret.
+- **Load PyCaret Datasets**: Load predefined datasets available through PyCaret. List all available datasets from PyCaret
 
    ![alt text](images/mlwiz6.jpeg)
 
@@ -17,12 +17,28 @@ MLWiz is a user-friendly web application for performing automated machine learni
    ![alt text](images/MLWiz.jpg)
 
    ![alt text](images/mlwiz2.jpeg) 
-- **Build Models**: Build machine learning models for classification, regression, clustering, anomaly detection, and time series forecasting.
+
+- **Build ML Models**: 
+  Configure preprocessing and model parameters supports
+  - Feature Selection
+  - Feature Transformation
+  - One Hot Encoding
+  - Normalization
+  - Missing Data Imputation
+  - Outlier Handling
+
+  Build Machine Learning models for :
+
+  - Classification 
+  - Regression
+  - Clustering 
+  - Anomaly Detection 
+  - Time Series Forecasting
 
    ![alt text](images/mlwiz3.jpeg)
 
    ![alt text](images/mlwiz4.jpeg)
-   
+
 - **Download Models**: Download the trained models for further use.
 
 ## Installation
@@ -34,17 +50,17 @@ MLWiz is a user-friendly web application for performing automated machine learni
 
 2. **Create and activate a virtual environment (optional but recommended):**
     ```bash
-        python -m venv venv
-        source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+   python -m venv venv
+   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
 
 3. **Install the required dependencies:**
    ```bash
-      pip install -r requirements.txt
+   pip install -r requirements.txt
 
 4. **Running the App**
     To run the Streamlit app, execute the following command in your terminal:
     ```bash
-        streamlit run app.py
+    streamlit run app.py
 
 ### Usage 
 1. Choose Dataset: Select a dataset source (Upload or PyCaret) and load the dataset.
@@ -65,16 +81,16 @@ MLWiz is a user-friendly web application for performing automated machine learni
 
 6. Install the dependencies using the command:
    ```bash
-     pip install -r requirements.txt
+    pip install -r requirements.txt
 
 Contributing
-Contributions are welcome! Please fork the repository and create a pull request with your changes.
+Contributions are welcome! 
 
 License
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
 Acknowledgements
-- Streamlit
-- PyCaret
-- Sweetviz
-- Ydata profiling
+- [Streamlit](https://github.com/streamlit/streamlit)
+- [PyCaret](https://github.com/pycaret/pycaret)
+- [Sweetviz](https://github.com/fbdesignpro/sweetviz)
+- [Ydata profiling](https://github.com/ydataai/ydata-profiling)
