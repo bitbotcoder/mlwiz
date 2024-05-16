@@ -1,0 +1,7 @@
+*.pkl
+sweet*.html
+profile*.html
+t-SNE*png
+Precision*.png
+*.log
+__pycache__/*

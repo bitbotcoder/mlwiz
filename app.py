@@ -3,7 +3,7 @@ from ml_pipeline import load_data, generate_eda_report, build_model, download_mo
 
 # Title and description
 st.title("🤖 MLWiz ")
-st.info("Upload your dataset, perform EDA, and build ML models with ease!")
+st.info("Streamline your ML pipelines with our low-code app, automating EDA, data profiling, and ML model building effortlessly.")
 st.divider()
 st.sidebar.image('logo.png', width=200)
 st.sidebar.divider()

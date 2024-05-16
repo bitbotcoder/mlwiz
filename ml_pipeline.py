@@ -104,8 +104,14 @@ def build_model():
         # Feature Selection
         remove_multicollinearity = st.sidebar.checkbox("Remove Multicollinearity", value=False)
         multicollinearity_threshold = st.sidebar.slider("Multicollinearity Threshold", 0.5, 1.0, 0.9) if remove_multicollinearity else None
-        feature_selection = st.sidebar.checkbox("Feature Selection", value=False)
-        feature_selection_method = st.sidebar.selectbox("Feature Selection Method", ["classic", "exhaustive"], index=0 if feature_selection else -1) if feature_selection else None
+        
+        if not (task == "Anomaly Detection" or task == "Clustering") :
+            feature_selection = st.sidebar.checkbox("Feature Selection", value=False)
+            feature_selection_method = st.sidebar.selectbox("Feature Selection Method", ["classic", "exhaustive"], index=0 if feature_selection else -1) if feature_selection else None
+        else:
+            feature_selection = None
+            feature_selection_method = None
+        
         pb = st.progress(0, text="Building Model")
         try:
             # Setup arguments for PyCaret
@@ -174,11 +180,13 @@ def build_model():
                 st.write(best_model)
             elif task == "Clustering" and st.sidebar.button("Run Clustering"):
                 df.dropna(subset=numerical_columns + categorical_columns, inplace=True)
-                
+                setup_kwargs.pop('target')
+                setup_kwargs.pop('feature_selection')
+                setup_kwargs.pop('feature_selection_method')  
                 exp = clu_setup(**setup_kwargs)
                 best_model = clu_create('kmeans')
-                st.image(clu_plot(best_model, plot='cluster', save=True))
-                st.image(clu_plot(best_model, plot='elbow', save=True))
+                clu_plot(best_model, plot='cluster', display_format='streamlit')
+                clu_plot(best_model, plot='elbow', display_format='streamlit')
                 st.write(best_model)
                 st.dataframe(clu_pull())
                 clu_save(best_model, 'best_clustering_model')
@@ -187,11 +195,13 @@ def build_model():
 
             elif task == "Anomaly Detection" and st.sidebar.button("Run Anomaly Detection"):
                 df.dropna(subset=numerical_columns + categorical_columns, inplace=True)
-                
+                setup_kwargs.pop('target')
+                setup_kwargs.pop('feature_selection')
+                setup_kwargs.pop('feature_selection_method')        
                 exp = ano_setup(**setup_kwargs)
                 best_model = ano_create('iforest')
-                st.image(ano_plot(best_model, plot='tsne', save=True))
-                st.image(ano_plot(best_model, plot='umap', save=True))
+                ano_plot(best_model, plot='tsne', display_format='streamlit')
+                #ano_plot(best_model, plot='umap', display_format='streamlit')
                 st.write(best_model)
                 st.dataframe(ano_pull())
                 ano_save(best_model, 'best_anomaly_model')
