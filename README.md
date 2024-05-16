@@ -4,10 +4,25 @@ MLWiz is a user-friendly web application for performing automated machine learni
 
 ## Features
 
-- **Upload Datasets**: Upload your datasets in CSV or XLSX format.!![alt text](images/mlwiz5.jpeg)
-- **Load PyCaret Datasets**: Load predefined datasets available through PyCaret.!![alt text](images/mlwiz6.jpeg)
-- **Exploratory Data Analysis (EDA)**: Generate comprehensive EDA reports using Sweetviz, Pandas Profiling.[alt text](images/MLWiz.jpg) [alt text](images/mlwiz2.jpeg) 
-- **Build Models**: Build machine learning models for classification, regression, clustering, anomaly detection, and time series forecasting.![alt text](images/mlwiz3.jpeg)![alt text](images/mlwiz4.jpeg)
+- **Upload Datasets**: Upload your datasets in CSV or XLSX format.
+
+   ![alt text](images/mlwiz5.jpeg)
+
+- **Load PyCaret Datasets**: Load predefined datasets available through PyCaret.
+
+   ![alt text](images/mlwiz6.jpeg)
+
+- **Exploratory Data Analysis (EDA)**: Generate comprehensive EDA reports using Sweetviz, Pandas Profiling.
+
+   ![alt text](images/MLWiz.jpg)
+
+   ![alt text](images/mlwiz2.jpeg) 
+- **Build Models**: Build machine learning models for classification, regression, clustering, anomaly detection, and time series forecasting.
+
+   ![alt text](images/mlwiz3.jpeg)
+
+   ![alt text](images/mlwiz4.jpeg)
+   
 - **Download Models**: Download the trained models for further use.
 
 ## Installation
