@@ -1,6 +1,6 @@
-# Analytica Pro
+# MLWiz
 
-Analytica Pro  is a user-friendly web application for performing automated machine learning (AutoML) tasks using PyCaret. The app allows you to upload datasets, perform exploratory data analysis (EDA), build various types of machine learning models, and download the trained models. It supports classification, regression, clustering, anomaly detection, and time series forecasting tasks.
+MLWiz is a user-friendly web application for performing automated machine learning (AutoML) tasks using PyCaret. The app allows you to upload datasets, perform exploratory data analysis (EDA), build various types of machine learning models, and download the trained models. It supports classification, regression, clustering, anomaly detection, and time series forecasting tasks.
 
 ## Features
 

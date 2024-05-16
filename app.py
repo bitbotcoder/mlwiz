@@ -2,7 +2,7 @@ import streamlit as st
 from ml_pipeline import load_data, generate_eda_report, build_model, download_model,load_pycaret_dataset, get_all_datasets
 
 # Title and description
-st.title("🤖 Analytica Pro ")
+st.title("🤖 MLWiz ")
 st.info("Upload your dataset, perform EDA, and build ML models with ease!")
 st.divider()
 st.sidebar.image('logo.png', width=200)
