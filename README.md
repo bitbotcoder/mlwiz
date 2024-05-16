@@ -14,7 +14,7 @@ MLWiz is a user-friendly web application for performing automated machine learni
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/sumit2sk/analyticapro.git
+   git clone https://github.com/bitbotcoder/mlwiz.git
    cd ai-insight-hub
 
 2. **Create and activate a virtual environment (optional but recommended):**
@@ -49,8 +49,8 @@ MLWiz is a user-friendly web application for performing automated machine learni
  - pycaret
 
 6. Install the dependencies using the command:
-    ```bash
-      pip install -r requirements.txt
+   ```bash
+     pip install -r requirements.txt
 
 Contributing
 Contributions are welcome! Please fork the repository and create a pull request with your changes.
@@ -62,3 +62,4 @@ Acknowledgements
 - Streamlit
 - PyCaret
 - Sweetviz
+- Ydata profiling
