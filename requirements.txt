@@ -3,3 +3,4 @@ pandas
 sweetviz
 pycaret
 ydata_profiling
+st_social_media_links
