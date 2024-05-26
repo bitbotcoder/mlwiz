@@ -5,3 +5,4 @@ t-SNE*png
 Precision*.png
 *.log
 __pycache__/*
+*Zone.Identifier

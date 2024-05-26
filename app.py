@@ -1,32 +1,82 @@
-import streamlit as st
-from ml_pipeline import load_data, generate_eda_report, build_model, download_model,load_pycaret_dataset, get_all_datasets
+try:
+    import streamlit as st
+    from ml_pipeline import load_data, eda_report, build_model, download_model,load_pycaret_dataset, get_all_datasets, handle_exception
+    from st_social_media_links import SocialMediaIcons
+    import streamlit.components.v1 as components
+    import traceback
+    
+    VERSION = "0.5.4"
 
-# Title and description
-st.title("🤖 MLWiz ")
-st.info("Streamline your ML pipelines with our low-code app, automating EDA, data profiling, and ML model building effortlessly.")
-st.divider()
-st.sidebar.image('logo.png', width=200)
-st.sidebar.divider()
-# Sidebar for navigation
-st.sidebar.title("Navigation")
+    # Title and description
+    st.set_page_config(
+        page_title="MLWiz - AutoML WorkBench",
+        page_icon="🤖",
+        menu_items={
+            "About": f"MLWize v{VERSION}"
+            f"\nApp contact: [Sumit Khanna](https://github.com/bitbotcoder/)",
+            "Report a Bug": "https://github.com/bitbotcoder/mlwiz/issues/new",
+            "Get help": None,
+        },
+        layout="wide",
+    )
+    st.subheader("🤖 MLWiz - Automating ML Tasks")
+    st.divider()
+    with st.sidebar: 
+        st.image('logo.png', width=150)
+        st.write("🔠 Support Features")
+        st.caption("""
+                   - ✅ Datasets (Custom, PyCaret)
+                   - ✅ Data Profiling & EDA
+                   - ✅ Build ML Models 
+                   - ✅ Regression 
+                   - ✅ Classification 
+                   - ✅ Clustering 
+                   - ✅ Time Series Forecasting 
+                   - ✅ Anamoly Detection 
+                   - ✅ Download Models
+                   """)
+        st.divider()    
+        st.write("📢 Share with wider community")
+        social_media_links = [
+                "https://x.com/intent/tweet?hashtags=streamlit%2Cpython&text=Check%20out%20this%20awesome%20Streamlit%20app%20I%20built%0A&url=https%3A%2F%2Fautoml-wiz.streamlit.app",
+                "https://www.linkedin.com/sharing/share-offsite/?summary=https%3A%2F%2Fautoml-wiz.streamlit.app%20%23streamlit%20%23python&title=Check%20out%20this%20awesome%20Streamlit%20app%20I%20built%0A&url=https%3A%2F%2Fautoml-wiz.streamlit.app",
+                "https://www.facebook.com/sharer/sharer.php?kid_directed_site=0&u=https%3A%2F%2Fautoml-wiz.streamlit.app",
+                "https://github.com/bitbotcoder/mlwiz"
+            ]
 
-option = st.sidebar.selectbox("Choose a step", ["Choose Dataset", "Perform EDA", "Build Model", "Download Model"])
+        social_media_icons = SocialMediaIcons(social_media_links, colors=["white"] * len(social_media_links))
 
-# Steps based on user selection
-if option == "Choose Dataset":
-    dataset_source = st.radio("Select Dataset Source", ["Upload", "PyCaret"])
-    if dataset_source == "Upload":
-        uploaded_file = st.file_uploader("Choose a file", type=["csv", "xlsx"])
-        if uploaded_file is not None:
-            load_data(uploaded_file)
-    elif dataset_source == "PyCaret":
-        pycaret_datasets = get_all_datasets()#["index", "boston", "diabetes", "blood", "bupa", "diamond"]
-        selected_dataset = st.selectbox("Select a dataset", pycaret_datasets)
-        if st.button("Load Dataset"):
-            load_pycaret_dataset(selected_dataset)
-elif option == "Perform EDA":
-    generate_eda_report()
-elif option == "Build Model":
-    build_model()
-elif option == "Download Model":
-    download_model()
+        social_media_icons.render(sidebar=True)
+        
+    #Tasks based on user selection
+    tab1, tab2, tab3, tab4, = st.tabs(["📑Choose Dataset", "📊Perform EDA", "🧠Build Model", "📩Download Model"])
+
+    with tab1:
+        c1, c2 = st.columns([1,2])
+        dataset_source = c1.radio("Select Dataset Source", options=["PyCaret", "Upload"], captions=["Load PyCaret Datasets", "Upload Custom Dataset files"])
+        if dataset_source == "PyCaret":
+            pycaret_datasets = get_all_datasets()
+            selected_dataset = c2.selectbox("Select a dataset", pycaret_datasets)
+            if c2.button("Load Dataset"):
+                load_pycaret_dataset(selected_dataset)
+        elif dataset_source == "Upload":
+            uploaded_file = c2.file_uploader("Choose a file", type=["csv", "xlsx"])
+            if uploaded_file is not None:
+                load_data(uploaded_file)
+        
+    with tab2:
+        eda_report()
+    with tab3:
+        st.write("**Configure ML Model**")
+        col1,col2 = st.columns([0.4,0.7])
+        task = col1.selectbox("Select ML task", ["Classification", "Regression", "Clustering", "Anomaly Detection", "Time Series Forecasting"])
+        build_model(task,col2)
+    with tab4:
+        download_model(task)
+except Exception as e:
+        handle_exception(e)
+
+st.success(
+    "Show your 💘 ➡️ [Star the repo](https://github.com/bitbotcoder/mlwiz/)",
+    icon="ℹ️",
+)
