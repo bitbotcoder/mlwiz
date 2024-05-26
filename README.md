@@ -96,3 +96,8 @@ Acknowledgements
 - [PyCaret](https://github.com/pycaret/pycaret)
 - [Sweetviz](https://github.com/fbdesignpro/sweetviz)
 - [Ydata profiling](https://github.com/ydataai/ydata-profiling)
+
+📢 Share with wider community:
+- [X](https://x.com/intent/tweet?hashtags=streamlit%2Cpython&text=Check%20out%20this%20awesome%20Streamlit%20app%20I%20built%0A&url=https%3A%2F%2Fautoml-wiz.streamlit.app)
+- [LinkedIn](https://www.linkedin.com/sharing/share-offsite/?summary=https%3A%2F%2Fautoml-wiz.streamlit.app%20%23streamlit%20%23python&title=Check%20out%20this%20awesome%20Streamlit%20app%20I%20built%0A&url=https%3A%2F%2Fautoml-wiz.streamlit.app")
+- [Facebook](https://www.facebook.com/sharer/sharer.php?kid_directed_site=0&u=https%3A%2F%2Fautoml-wiz.streamlit.app)
