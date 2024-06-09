@@ -23,9 +23,9 @@ try:
     st.divider()
     with st.sidebar: 
         st.image('logo.png', width=150)
-        st.write("🔠 Support Features")
+        st.write("🔠 Supported Features")
         st.caption("""
-                   - ✅ Datasets (Custom, PyCaret)
+                   - ✅ Datasets (Custom, PyCaret(disabled))
                    - ✅ Data Profiling & EDA
                    - ✅ Build ML Models 
                    - ✅ Regression 
