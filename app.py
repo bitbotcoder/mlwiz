@@ -53,16 +53,17 @@ try:
 
     with tab1:
         c1, c2 = st.columns([1,2])
-        dataset_source = c1.radio("Select Dataset Source", options=["PyCaret", "Upload"], captions=["Load PyCaret Datasets", "Upload Custom Dataset files"])
-        if dataset_source == "PyCaret":
-            pycaret_datasets = get_all_datasets()
-            selected_dataset = c2.selectbox("Select a dataset", pycaret_datasets)
-            if c2.button("Load Dataset"):
-                load_pycaret_dataset(selected_dataset)
-        elif dataset_source == "Upload":
-            uploaded_file = c2.file_uploader("Choose a file", type=["csv", "xlsx"])
-            if uploaded_file is not None:
-                load_data(uploaded_file)
+        c1.write("Upload Custom Dataset files")
+        #dataset_source = c1.radio("Select Dataset Source", options=["PyCaret", "Upload"], captions=["Load PyCaret Datasets", "Upload Custom Dataset files"])
+        #if dataset_source == "PyCaret":
+        #    pycaret_datasets = get_all_datasets()
+        #    selected_dataset = c2.selectbox("Select a dataset", pycaret_datasets)
+        #    if c2.button("Load Dataset"):
+        #        load_pycaret_dataset(selected_dataset)
+        #elif dataset_source == "Upload":
+        uploaded_file = c2.file_uploader("Choose a file", type=["csv", "xlsx"])
+        if uploaded_file is not None:
+            load_data(uploaded_file)
         
     with tab2:
         eda_report()
